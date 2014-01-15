@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-sm-2">
+		<div class="form-group">
+			<label>Platforms</label>
+			<div class="checkbox" ng-repeat="player in players">
+				<label>
+					<input type="checkbox" ng-model="filters.players[player.steamID64]"> {{ player.steamID }}
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Platforms</label>
+			<div class="checkbox" ng-repeat="platform in platforms">
+				<label>
+					<input type="checkbox" ng-model="filters.platforms[platform]"> {{ platform }}
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Categories</label>
+			<div class="checkbox" ng-repeat="category in categories">
+				<label>
+					<input type="checkbox" ng-model="filters.categories[category]"> {{ category }}
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Genres</label>
+			<div class="checkbox" ng-repeat="genre in genres">
+				<label>
+					<input type="checkbox" ng-model="filters.genres[genre]"> {{ genre }}
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-10">
+		<ul>
+			<li ng-repeat="game in games | gamesFilter:filters">
+				<a href="http://store.steampowered.com/app/{{ game.appid }}/">{{ game.name }}</a>
+			</li>
+		</ul>
+	</div>
+</div>

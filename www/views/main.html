@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h1>Steam co-op tool</h1>
+		<p>This tool allows you to enter two steamid's and compare the co-op and multiplayer games on both accounts. It's still under heavy development right now, but feel free to send any suggestions or such to @_dearon on Twitter.</p>
+	</div>
+</div>
+<form>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label>Your steamid</label>
+			<input type="text" class="form-control" ng-model="steamids.playerOne">
+		</div>
+		<div class="alert alert-danger" ng-show="errors.playerOne.empty">Please enter your steamid</div>
+		<div class="alert alert-danger" ng-show="errors.playerOne.notFound">We could not find a profile for this steamid</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label>Friends steamid</label>
+			<input type="text" class="form-control" ng-model="steamids.playerTwo">
+		</div>
+		<div class="alert alert-danger" ng-show="errors.playerTwo.empty">Please enter a friends steamid</div>
+		<div class="alert alert-danger" ng-show="errors.playerTwo.notFound">We could not find a profile for this steamid</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<button class="btn btn-default" ng-click="comparePlayers()">Compare</button>
+		</div>
+	</div>
+</div>
+</form>

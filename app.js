@@ -6,8 +6,6 @@ var parseString = require('xml2js').parseString;
 var settings = require('./settings.json');
 
 app.get('/games', function(req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
-
   function loadGames() {
     Models.Game
       .find({ $or : [{ categories: 'Co-op' }, { categories: 'Local Co-op' }, { categories: 'Multi-player' }] })
@@ -74,8 +72,6 @@ app.get('/games', function(req, res) {
 });
 
 app.get('/players/:steamid', function(req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
-
   function getProfile(steamid) {
     var result = '';
     http.get('http://steamcommunity.com/id/' + steamid + '?xml=1', function(httpres) {
